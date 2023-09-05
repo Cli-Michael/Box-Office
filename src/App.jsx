@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import Nav from './components/Nav';
 import Home from './pages/Home';
 import Starred from './pages/Starred';
 
@@ -9,19 +8,14 @@ const NotFoundPage = () => {
 
 const App = () => {
   return (
-    <div>
-      <Nav />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/starred" element={<Starred />} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/starred" element={<Starred />} />
-
-        {/* Define the 404 Page with a wildcard path */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </div>
+      {/* Define the 404 Page with a wildcard path */}
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 };
 
 export default App;
-
